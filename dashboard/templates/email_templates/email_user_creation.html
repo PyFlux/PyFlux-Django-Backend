@@ -1,0 +1,77 @@
+{% extends "email_templates/base.html" %}
+{% block body %}
+<div class="content">
+
+    <!-- START CENTERED WHITE CONTAINER -->
+    <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+    <table class="main">
+
+        <!-- START MAIN CONTENT AREA -->
+        <tr>
+            <td class="wrapper">
+                <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+
+                            <p><b>Hi {{ user.first_name }} {{ user.last_name }},</b></p>
+                            <hr color="#25b99a" size="4">
+                            <p>Your Vidhyadhan account has been created successfully using email: {{ user.email }}.</p>
+                            <p>Please use the below credentials to login:</p>
+                            <p>
+                                Username: <strong>{{ user.username }}</strong><br>
+                                Password: <strong>{{ password }}</strong>
+                            </p>
+                            </ul>
+                            <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                                <tbody>
+                                    <tr>
+                                        <td align="center">
+                                            <table border="0" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{{ site_url }}" target="_blank">
+                                                                Login
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>If you did not sign up for this site, you can ignore this message.</p>
+                            <hr>
+                            <p>Good luck! Hope it works.</p>
+                            <hr color="#25b99a" size="3">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- END MAIN CONTENT AREA -->
+    </table>
+
+    <!-- START FOOTER -->
+    <div class="footer">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="content-block">
+                    <span class="apple-link">Vidhyadhan</span>
+                    <br> Don't like these emails? <a href="#">Unsubscribe</a>.
+                </td>
+            </tr>
+            <tr>
+                <td class="content-block powered-by">
+                    Powered by <a href="http://donams.com">Do-NAM's Innovations</a>.
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- END FOOTER -->
+
+    <!-- END CENTERED WHITE CONTAINER -->
+</div>
+{% endblock %}

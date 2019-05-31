@@ -1,0 +1,8 @@
+
+Remove cached file :
+1. Remove the file first
+2. git rm --cached <file>
+
+Remove cached folder ::
+1. Remove the folder first
+2. Run command : git rm -r --cached folder_name/

@@ -1,0 +1,57 @@
+{% extends "email_templates/base.html" %} 
+{% block body %}
+<div class="content">
+
+  <!-- START CENTERED WHITE CONTAINER -->
+  <!-- <span class="preheader">Fee Due Notification.</span> -->
+  <table class="main">
+
+    <!-- START MAIN CONTENT AREA -->
+    <tr>
+      <td class="wrapper">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td>
+              <p><b>Dear {{user.first_name}} {{user.last_name}},</b></p>
+              <hr color="#25b99a" size="4">
+              <p>Please pay your kid's fees due on  <strong>{{today}}</strong>.</p>
+              <table border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Fee Name<th>
+                    <th>Category<th>
+                   	<th>Amount<th>
+                 </tr>
+               </thead>
+               <tbody>
+                  {% for fee in fees %}
+                  	<tr>
+	                    <td>{{fee.name}} <td>
+	                    <td>{{fee.category.name}} <td>
+	                   	<td>{{fee.amount}}Rs<td>
+	                </tr>
+	              {% endfor %}
+               </tbody>
+             </table> 
+             <hr color="#25b99a" size="3">
+           </td>
+         </tr>
+       </table>
+     </td>
+   </tr>
+
+   <!-- END MAIN CONTENT AREA -->
+ </table>
+
+ <!-- START FOOTER -->
+ <div class="footer">
+  <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td class="content-block powered-by">
+        Powered by <a href="http://donams.com">Do-NAM's Innovations</a>.
+      </td>
+    </tr>
+  </table>
+</div>
+<!-- END FOOTER -->
+{% endblock %}

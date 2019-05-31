@@ -1,0 +1,61 @@
+{% extends "email_templates/base.html" %} 
+{% block body %}
+   <div class="content">
+
+            <!-- START CENTERED WHITE CONTAINER -->
+            <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
+            <table class="main">
+
+              <!-- START MAIN CONTENT AREA -->
+              <tr>
+                <td class="wrapper">
+                  <table border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td>
+                        <p><b>Hi {{to_user}},</b></p>
+                        <hr color="#25b99a" size="4">
+                        <p>You have a message from {{from_user}}</p>
+                        <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <p>
+                                      <b>
+                                       {{message}} 
+                                     </b>
+                                     </p>
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <p></p>
+                        <hr>
+                        <p>Good luck! Have a nice day.</p>
+                        <hr color="#25b99a" size="3">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+            <!-- END MAIN CONTENT AREA -->
+            </table>
+
+            <!-- START FOOTER -->
+            <div class="footer">
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="content-block">
+                    <span class="apple-link"> </span>
+                    <br> Don't like these emails? <a href="#">Unsubscribe</a>.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="content-block powered-by">
+                    Powered by <a href="http://donams.com">Do-NAM's Innovations</a>.
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <!-- END FOOTER -->
+{% endblock %}

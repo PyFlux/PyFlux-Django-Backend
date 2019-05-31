@@ -1,0 +1,9 @@
+
+Naming ::
+Package Name        : Only small letter is allowed. Under scores are not allowed. (Eg: dashboard)
+Class Name          : Only CapWords is allowed. Underscores are not allowed. (Eg: Dashboard)
+Model File Name     : Only CapWords is allowed. Underscores are not allowed. (Eg: Dashboard)
+Views File Name     : Small letter words, underscore are allowed. Use words wisely for readability. (Eg: student_academic_year)
+Serializer Name     : Small letter words, underscore are allowed. Use words wisely for readability. (Eg: student_serializer)
+Others              : Apart from any other specified above, can use small letter with underscores
+Variables           : Small letter words, underscore are allowed. Use words wisely for readability. (Eg: student_mark_list)
