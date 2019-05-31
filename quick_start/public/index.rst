@@ -1,8 +1,8 @@
 ===================
-Vidhyadhan REST Api
+Pyflux REST Api
 ===================
 
-Welcome to Vidhyadhan Rest Api. We will provide REST endpoints of authentication and various other endpoints to work with mobile app and angular frontend. To get the authentication token, make a `POST` request to the [endpoint](http://api.helpservice.xyz/api-token-auth/) with field `username` and `password`.
+Welcome to Pyflux Rest Api. We will provide REST endpoints of authentication and various other endpoints to work with mobile app and angular frontend. To get the authentication token, make a `POST` request to the [endpoint](http://api.helpservice.xyz/api-token-auth/) with field `username` and `password`.
 
 .. admonition:: About this edition   
 

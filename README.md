@@ -37,7 +37,7 @@ Install PostgreSQL::
 	$ apt-get install postgresql postgresql-contrib
 	$ sudo -u postgres psql
 	ALTER USER postgres WITH PASSWORD 'root';
-	create database vidhyadhanbackend;
+	create database pyfluxbackend;
 	\q
 
 VirtualHost::
@@ -91,8 +91,8 @@ Then, add `/etc/supervisor/conf.d/celery_proj_worker.conf` file:
 	; celery -A backend worker -l info -B
 	; Worker
 	[program:projworker]
-	command=/var/www/dev.vidhyadhan.in/backend/venv/bin/celery -A backend worker -l info
-	directory=/var/www/dev.vidhyadhan.in/backend
+	command=/var/www/dev.pyflux.in/backend/venv/bin/celery -A backend worker -l info
+	directory=/var/www/dev.pyflux.in/backend
 	numprocs=1
 	autostart=true
 	autorestart=true
@@ -105,8 +105,8 @@ Also add `/etc/supervisor/conf.d/celery_proj_beat.conf` file:
 
 	; Beat
 	[program:projbeat]
-	command=/var/www/dev.vidhyadhan.in/backend/venv/bin/celery -A backend beat -l info
-	directory=/var/www/dev.vidhyadhan.in/backend
+	command=/var/www/dev.pyflux.in/backend/venv/bin/celery -A backend beat -l info
+	directory=/var/www/dev.pyflux.in/backend
 	numprocs=1
 	autostart=true
 	autorestart=true
@@ -116,7 +116,7 @@ Also add `/etc/supervisor/conf.d/celery_proj_beat.conf` file:
 for Socket.IO Server add `/etc/supervisor/conf.d/socketio.conf` file:
 
 	[program:socketio]
-	command = /var/www/dev.vidhyadhan.in/backend/venv/bin/python /var/www/dev.vidhyadhan.in/backend/socketio_server.py
+	command = /var/www/dev.pyflux.in/backend/venv/bin/python /var/www/dev.pyflux.in/backend/socketio_server.py
 	
 
 super visor logs can be found in:

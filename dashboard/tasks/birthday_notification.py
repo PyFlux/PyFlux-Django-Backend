@@ -39,7 +39,7 @@ def birthday_notification_sms():
         parsed = datetime.strptime(str(user_profile.dob), "%Y-%m-%d").date().replace(year=today.year)
 
         if parsed == today:
-            message = "Dear " + student.user.first_name + ", Vidhyadhan wishes you a Very Happy Birthday and a Great Year ahead...!"
+            message = "Dear " + student.user.first_name + ", Pyflux wishes you a Very Happy Birthday and a Great Year ahead...!"
             # +++++++ Message For Student +++++++
             if user_profile.personal_mobile_no:
                 Sms_Queue.objects.create(

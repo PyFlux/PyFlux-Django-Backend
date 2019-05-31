@@ -43,8 +43,8 @@ class SendVerificationView(APIView):
             # user = request.user,
             status = 0,
             recepient_list = user.email,
-            from_email = 'info@vidhyadhan.in',
-            subject = 'Vidhyadhan - Verify your email address.',
+            from_email = 'info@pyflux.in',
+            subject = 'Pyflux - Verify your email address.',
             message = message
         )    
         obj.save()   

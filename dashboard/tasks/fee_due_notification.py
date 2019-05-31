@@ -55,9 +55,9 @@ def add_email_sms_to_queue():
 
         # save to Email_Queue DB. so that every minute email_users scheduler will send it
         Email_Queue.objects.create(
-            subject = 'Vidhyadhan - Fees Due on {date}.'.format(date= today_date),
+            subject = 'Pyflux - Fees Due on {date}.'.format(date= today_date),
             message = loader.get_template('email_templates/email_fee_due_notification.html').render(d),
-            from_email = 'info@vidhyadhan.in' ,
+            from_email = 'info@pyflux.in' ,
             recepient_list =','.join([p.user.email for p in parents if p.user.is_verified_email]),
             status = 0
         )

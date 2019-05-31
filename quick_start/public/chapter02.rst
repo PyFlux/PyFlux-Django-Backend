@@ -12,8 +12,8 @@ Install Apache
 	apt-get update
 	apt-get install python3-pip apache2 libapache2-mod-wsgi-py3
 	cd /var/www/
-	git clone https://gitlab.com/DonamsInnovations/Vidhyadhan-Back-End
-	cd Vidhyadhan-Back-End
+	git clone https://gitlab.com/DonamsInnovations/Pyflux-Back-End
+	cd Pyflux-Back-End
 
 Create virtual environment
 --------------------------
@@ -40,21 +40,21 @@ Edit apache config
 ------------------
 ::
 
-	vi /etc/apache2/sites-available/vidhyadhan_api.conf
+	vi /etc/apache2/sites-available/pyflux_api.conf
 	<VirtualHost *:80>
 	    ServerName api.helpservice.xyz
-	    WSGIDaemonProcess vidhyadhanapi python-home=/var/www/Vidhyadhan-Back-End/env python-path=/var/www/Vidhyadhan-Back-End
-	    WSGIProcessGroup vidhyadhanapi
-	    WSGIScriptAlias / /var/www/Vidhyadhan-Back-End/backend/wsgi.py
-	    ErrorLog /var/www/Vidhyadhan-Back-End/error.log
-	    CustomLog /var/www/Vidhyadhan-Back-End/access.log combined
+	    WSGIDaemonProcess pyfluxapi python-home=/var/www/Pyflux-Back-End/env python-path=/var/www/Pyflux-Back-End
+	    WSGIProcessGroup pyfluxapi
+	    WSGIScriptAlias / /var/www/Pyflux-Back-End/backend/wsgi.py
+	    ErrorLog /var/www/Pyflux-Back-End/error.log
+	    CustomLog /var/www/Pyflux-Back-End/access.log combined
 	</VirtualHost>
 
 restart apache
 --------------
 ::
 
-	a2ensite vidhyadhan_api.conf
+	a2ensite pyflux_api.conf
 	service apache2 reload
 
 lets encrypt for HTTPS
@@ -67,11 +67,11 @@ https://github.com/certbot/certbot/issues/1820
 
 I had to comment the `WSGIDaemonProcess` line out before running letsencrypt. 
 
-in **/etc/apache2/sites-available/Vidhyadhan-Back-End.conf**::
+in **/etc/apache2/sites-available/Pyflux-Back-End.conf**::
 
     <VirtualHost *:80>
         ServerName api.helpservice.xyz
-        # WSGIDaemonProcess vidhyadhanapi python-home=/var/www/Vidhyadhan-Back-End/env python-path=/var/www/Vidhyadhan-Back-End
+        # WSGIDaemonProcess pyfluxapi python-home=/var/www/Pyflux-Back-End/env python-path=/var/www/Pyflux-Back-End
         ...
 
 install the certificate
@@ -86,11 +86,11 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s
 
 uncommented `WSGIDaemonProcess`
 -------------------------------
-in **/etc/apache2/sites-available/Vidhyadhan-Back-End.conf**::
+in **/etc/apache2/sites-available/Pyflux-Back-End.conf**::
 
     <VirtualHost *:80>
         ServerName api.helpservice.xyz
-        WSGIDaemonProcess vidhyadhanapi python-home=/var/www/Vidhyadhan-Back-End/env python-path=/var/www/Vidhyadhan-Back-End
+        WSGIDaemonProcess pyfluxapi python-home=/var/www/Pyflux-Back-End/env python-path=/var/www/Pyflux-Back-End
         ...
 
 restart apache

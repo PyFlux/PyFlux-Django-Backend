@@ -117,7 +117,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vidhyadhanbackend',
+        'NAME': 'pyfluxbackend',
         'USER': 'postgres',
         'PASSWORD': 'pgllrKP3BS4r',
         'HOST': '127.0.0.1',

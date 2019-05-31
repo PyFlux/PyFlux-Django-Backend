@@ -45,7 +45,7 @@ class FeedbackListAPIView(CURDViewSet):
                     recepient_list=recepient_list,
                     from_email=request.user.email,
 
-                    subject='Vidhyadhan-Feedback ' + ''.join(data['name'].split()[:10]),
+                    subject='Pyflux-Feedback ' + ''.join(data['name'].split()[:10]),
                 )
                 data_details = {'message': data['name'],
                                 'from_email': request.user.email,
@@ -87,7 +87,7 @@ class FeedbackListAPIView(CURDViewSet):
                     recepient_list=recepient_list,
                     from_email=request.user.email,
 
-                    subject='Vidhyadhan-Feedback ' + ''.join(data['name'].split()[:10]),
+                    subject='Pyflux-Feedback ' + ''.join(data['name'].split()[:10]),
                 )
                 data_details = {'message': data['name'],
                                 'from_email': request.user.email,

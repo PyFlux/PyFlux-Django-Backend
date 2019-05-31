@@ -53,15 +53,15 @@ class UsersListAPIView(CURDViewSet):
           # code for sending email to Parent
         pswd = request.data['password']
 
-        message = "Your Vidhyadhan account has been created successfully"
+        message = "Your Pyflux account has been created successfully"
         recepient_list =  Users.objects.get(id = userserializer.data['id']).email
         user =  Users.objects.get(id =userserializer.data['id'])
         obj = Email_Queue(
             user_id = request.user.id,
             status=0,
             recepient_list = recepient_list,
-            from_email = 'info@vidhyadhan.in',
-            subject = 'Vidhyadhan- '+' '.join(message.split()[:10]),
+            from_email = 'info@pyflux.in',
+            subject = 'Pyflux- '+' '.join(message.split()[:10]),
         )
         data_details = {'user':user,
         'from_email':request.user.email,

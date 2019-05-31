@@ -42,8 +42,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Create Super Admin
         users = [
-            {'username':'superadmin', 'email':'superadmin@vidhyadhan.in', 'password':'superadmin123#'},
-            {'username':'admin', 'email':'admin@vidhyadhan.in', 'password':'admin123#'},
+            {'username':'superadmin', 'email':'superadmin@pyflux.in', 'password':'superadmin123#'},
+            {'username':'admin', 'email':'admin@pyflux.in', 'password':'admin123#'},
         ]
         for user in users:
             self.create_user(user)

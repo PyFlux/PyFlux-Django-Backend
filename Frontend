@@ -1,11 +1,11 @@
-Frontend : bj.vidhyadhan.in_frontend.conf
+Frontend : bj.pyflux.in_frontend.conf
 ------------
 #Listen 80
 <VirtualHost *:80>
-	ServerName bj.vidhyadhan.in
+	ServerName bj.pyflux.in
         #referring the user to the recipes application
-        DocumentRoot /var/www/bj.vidhyadhan.in/frontend
-        <Directory /var/www/bj.vidhyadhan.in/frontend>
+        DocumentRoot /var/www/bj.pyflux.in/frontend
+        <Directory /var/www/bj.pyflux.in/frontend>
                 Options Indexes FollowSymLinks MultiViews
                 AllowOverride All
                 Order allow,deny
@@ -14,22 +14,22 @@ Frontend : bj.vidhyadhan.in_frontend.conf
                 # default start page (in /apache2-default) when you go to /
                 #RedirectMatch ^/$ /apache2-default/
         </Directory>
-        ErrorLog /var/www/bj.vidhyadhan.in/frontend/error.log
-        CustomLog /var/www/bj.vidhyadhan.in/frontend/access.log combined
+        ErrorLog /var/www/bj.pyflux.in/frontend/error.log
+        CustomLog /var/www/bj.pyflux.in/frontend/access.log combined
 </VirtualHost>
 
 
-Backend : bjapi.vidhyadhan.in_backend.conf
+Backend : bjapi.pyflux.in_backend.conf
 ------------
 #Listen 80
 <VirtualHost *:80>
-    ServerName bjapi.vidhyadhan.in
-    WSGIDaemonProcess bjapi.vidhyadhan.in_backend python-home=/var/www/bjapi.vidhyadhan.in/backend/venv python-path=/var/www/bjapi.vidhyadhan.in/backend
-    WSGIProcessGroup bjapi.vidhyadhan.in_backend
+    ServerName bjapi.pyflux.in
+    WSGIDaemonProcess bjapi.pyflux.in_backend python-home=/var/www/bjapi.pyflux.in/backend/venv python-path=/var/www/bjapi.pyflux.in/backend
+    WSGIProcessGroup bjapi.pyflux.in_backend
     WSGIPassAuthorization On
-    WSGIScriptAlias / /var/www/bjapi.vidhyadhan.in/backend/backend/wsgi.py
-    ErrorLog /var/www/bjapi.vidhyadhan.in/backend/error.log
-    CustomLog /var/www/hcsss.vidhyadhan.in/backend/access.log combined
+    WSGIScriptAlias / /var/www/bjapi.pyflux.in/backend/backend/wsgi.py
+    ErrorLog /var/www/bjapi.pyflux.in/backend/error.log
+    CustomLog /var/www/hcsss.pyflux.in/backend/access.log combined
 </VirtualHost>
 
 Database : bj

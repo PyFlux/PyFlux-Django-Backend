@@ -15,8 +15,8 @@ def get_email_connection():
     EmailCredentials(
         smtp_hostname = 'donams.com',
         smtp_port = '587',
-        smtp_user_name = 'info@vidhyadhan.in',
-        smtp_password = 'InfoVidhyadhan@123#',
+        smtp_user_name = 'info@pyflux.in',
+        smtp_password = 'InfoPyflux@123#',
         status = 1
     )
     
@@ -30,7 +30,7 @@ def get_email_connection():
     )
     smtp_hostname = 'smtp.gmail.com'
     smtp_port = '587'
-    smtp_user_name = 'vidhyadhanerp@gmail.com'
+    smtp_user_name = 'pyfluxerp@gmail.com'
     smtp_password = 'xddqenjqfvnrirqy'
     """
 
