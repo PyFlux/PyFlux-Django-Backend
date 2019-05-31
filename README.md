@@ -1,7 +1,5 @@
 # REST Api
 
-visit: https://DonamsInnovations.gitlab.io/Vidhyadhan-Back-End
-
 ## migrate and populatedb
 
 	./manage.py migrate
