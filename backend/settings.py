@@ -32,31 +32,12 @@ INSTALLED_APPS = [
 
     # no models
     'usermanagement.apps.UsermanagementConfig',
-    'reports.apps.ReportsConfig',
 
     # models
     'dashboard.apps.DashboardConfig',
-    'library.apps.LibraryConfig',
-    'hr.apps.HrConfig',
-    'communications.apps.CommunicationsConfig',
-    'administration.apps.AdministrationConfig',
     'systemconfig.apps.SystemconfigConfig',
-    'parents.apps.ParentsConfig',
-    'fees.apps.FeesConfig',
-    'academics.apps.AcademicsConfig',
-    'admissions.apps.AdmissionConfig',
-    'students.apps.StudentsConfig',
-    'exammanagement.apps.ExammanagementConfig',
-    'events.apps.EventsConfig',
-    'mobileapi.apps.MobileApiConfig',
-    'extracurricularactivities.apps.ExtraCurricularActivitiesConfig',
-    'timetable.apps.TimetableConfig',
-    'documentuploader.apps.DocumentuploaderConfig',
-    
-    'notifications.apps.NotificationsConfig',
     'utils.apps.UtilsConfig',
-    'hostel.apps.HostelConfig',
-    'inventory.apps.InventoryConfig',
+
     # 'import_export',
     'rest_framework',
     'fcm_django',
@@ -117,9 +98,9 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pyfluxbackend',
+        'NAME': 'pyflux-django-backend',
         'USER': 'postgres',
-        'PASSWORD': 'pgllrKP3BS4r',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
