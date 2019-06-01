@@ -20,8 +20,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'REST api'
-copyright = '2018, donams'
-author = 'donams'
+copyright = '2018'
+author = ''
 
 # The short X.Y version
 version = ''
@@ -129,7 +129,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'RESTapi.tex', 'REST api Documentation',
-     'donams', 'manual'),
+     '', 'manual'),
 ]
 
 

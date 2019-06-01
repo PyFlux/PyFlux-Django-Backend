@@ -11,9 +11,9 @@ from pathlib import Path
 
 def get_email_connection():
     """    
-    # vidhyahdan
+    #
     EmailCredentials(
-        smtp_hostname = 'donams.com',
+        smtp_hostname = 'pyflux.com',
         smtp_port = '587',
         smtp_user_name = 'info@pyflux.in',
         smtp_password = 'InfoPyflux@123#',
