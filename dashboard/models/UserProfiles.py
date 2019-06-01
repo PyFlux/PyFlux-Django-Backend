@@ -44,7 +44,7 @@ class UserProfile(BaseModel):
     mother_name = models.CharField(max_length=255, blank=True, null=True)  # In encrypted format
     father_name = models.CharField(max_length=255, blank=True, null=True)  # In encrypted format
 
-    designation = models.ForeignKey('hr.Designation', on_delete=models.CASCADE, null=True)  # Student, Software Engineer
+    designation = models.CharField(max_length=255, blank=True, null=True)  # Software Engineer
     religion = models.ForeignKey('systemconfig.Religion', on_delete=models.CASCADE, null=True)  # Christian, Hindu etc
     religion_caste = models.ForeignKey('systemconfig.Caste', on_delete=models.CASCADE, blank=True, null=True)  # SC, ST, OBC etc
 

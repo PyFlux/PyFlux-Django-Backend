@@ -13,8 +13,6 @@ from rest_framework.renderers import JSONRenderer
 
 from .datatables_helper import DatatableMixin #datatables_helper
 from .models import serializer_factory
-from communications.models import Messages
-from admissions.models import Admission
 from dashboard.models import SystemSettings
 
 def CreateTokenResponse(serializer):
@@ -113,20 +111,7 @@ class DatatableListJson(DatatableMixin,TimeDelayed_APIView):
         cid = request.GET.getlist('cid[]')
         action = request.GET.get('action')
         model_name = request.GET.get('model_name')
-
-        """
-        Needs to fill Teacher datatable,actually a model of Employee.
-        """
-        if (model_name == 'hr__Teacher'):
-            #print('teacher')
-            #queryset = self.model.objects.filter(emp_staff_type = 'Teacher')
-            model_name = 'hr__Employeemaster'
-
-        #     queryset = self.model.objects.filter(id__in=cid, admission_school__in=True)
         self.set_model(model_name)
-        # if (request.GET.get('model_name') == 'students__studentmaster'):
-        #     queryset = self.model.objects.filter(id__in=cid, admission_school__in=True)
-        # else:
         queryset = self.model.objects.filter(id__in=cid)
         
         if action in ["enable", "disable"]:
@@ -180,11 +165,6 @@ class DatatableListJson(DatatableMixin,TimeDelayed_APIView):
    
     def filter_queryset(self, qs): 
         filter_trashed = self.request.data.get('filter_trashed', None)
-        if (self.request.data['model_name'] == 'students__studentmaster'):
-            qs = qs.filter(admission_school=True)
-        
-        if (self.request.data['model_name'] == 'hr__Teacher'):
-            qs = qs.filter(emp_details__emp_staff_type = 'T')
         if (filter_trashed == '1'):
             qs = qs.filter(deleted_at__isnull=False)
         else:

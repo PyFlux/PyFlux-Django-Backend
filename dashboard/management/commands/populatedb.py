@@ -7,11 +7,8 @@ fake = Faker()
 
 from systemconfig.models import Country, Nationality, State, CityTown, Religion, Languages, Relationship, Occupation, \
     Hobby, District, Caste
-from students.models import StudentCategory, Student
-from academics.models import AcademicYear, Courses, Batches, Section, Classes, Subject, Exam
-from exammanagement.models import QuestionCategory, Questions, QuestionOptions
 from dashboard.models import Widget, Roles, UserTypes, SystemSettings
-from hr.models import Designation
+
 
 DATA = {
     'user_types': {'Super Admin': 'SU', 'Admin': 'A', 'Principal': 'PR', 'Manager': 'MN', 'Student': 'S', 'Parent': 'P',
@@ -20,15 +17,13 @@ DATA = {
         'maintenance_mode': '0', 'frontend_url': '', 'backend_url': '', 'sendsms_verifiednumbers_only':'0',
         'sub_domain': '',
     },
-    'roles': ['Principal', 'Vice Principal', 'Administrator', 'Manager', 'Employee', 'Teacher', 'Student', 'Parent',
-              'Librarian', 'Anonymous'],
+    'roles': ['Administrator', 'Manager', 'Anonymous'],
     'religions': ['Christian', 'Hindu', 'Muslim', 'Other'],
     'languages': ['English', 'Malayalam', 'Tamil', 'Hindi', 'Other'],
     'relationships': ['Father', 'Mother', 'Brother', 'Sister', 'Uncle', 'Other'],
     'occupations': ['Business', 'Teacher', 'Software Engineer', 'Driver', 'Other'],
-    'academic_years': ['2017-2018', '2018-2019', '2019-2020'],
     'student_categories': ['ST', 'SC', 'OBC''Nair', 'Bhramin', 'Roman Catholic', 'Latin Catholic', 'Others', ],
-    'castes': ['ST', 'SC', 'OBC''Nair', 'Bhramin', 'Roman Catholic', 'Latin Catholic', 'Others', ],
+    'castes': ['Roman Catholic', 'Latin Catholic', 'Others', ],
     'nationalities': ['Indian', 'American', 'Sri Lankan', 'Other'],
     'states': ['Kerala', 'Tamilnadu', 'Karnataka', 'Other'],
     'districts': ['Thrissur', 'Ernakulam'],
@@ -209,21 +204,6 @@ class Command(BaseCommand):
                     Occupation.objects.create(name=occupation, status=1)
         # ++++++++++++++++++++++++ End of Adding Occupation +++++++++++++++++
 
-        # ++++++++++++++++++++++++ Adding Student Category ++++++++++++++++++++++++
-        # student_category = StudentCategory.objects.create(student_category_name=DATA['student_categories'][i], status=1)       
-        for student_category in DATA['student_categories']:
-            data_exist = StudentCategory.objects.filter(student_category_name__exact=student_category).all()
-            if not data_exist:
-                print("Added: " + student_category)
-                StudentCategory.objects.create(student_category_name=student_category, status=1)
-            else:
-                if data_exist[0].student_category_name == student_category:
-                    print("Skipping: " + student_category)
-                else:
-                    print("Added: " + student_category)
-                    StudentCategory.objects.create(student_category_name=student_category, status=1)
-        # ++++++++++++++++++++++++ End of Adding Student Category +++++++++++++++++
-
         # ++++++++++++++++++++++++ Adding Nationality ++++++++++++++++++++++++
         # nationality = Nationality.objects.create(nationality_name=DATA['nationalities'][i])
         for nationality in DATA['nationalities']:
@@ -299,113 +279,3 @@ class Command(BaseCommand):
                     print("Added: " + city)
                     CityTown.objects.create(city_name=city, status=1)
         # ++++++++++++++++++++++++ End of Adding City +++++++++++++++++
-
-        # ++++++++++++++++++++++++ Adding Subjects ++++++++++++++++++++++++
-        # citytown = CityTown.objects.create(city_name=DATA['cities'][i], city_state=state, city_country=country,status=1)
-        for subject in DATA['subjects']:
-            data_exist = Subject.objects.filter(subject_name__exact=subject).all()
-            if not data_exist:
-                print("Added: " + subject)
-                Subject.objects.create(subject_name=subject, status=1)
-            else:
-                if data_exist[0].subject_name == subject:
-                    print("Skipping: " + subject)
-                else:
-                    print("Added: " + subject)
-                    Subject.objects.create(subject_name=subject, status=1)
-        # ++++++++++++++++++++++++ End of Adding Subjects +++++++++++++++++
-
-        # ++++++++++++++++++++++++ Adding Academic Year ++++++++++++++++++++++++
-        #     academic_year = AcademicYear.objects.create(academic_name=DATA['academic_years'][i], status=1,start_date=fake.date_this_month(), end_date=fake.date_this_month())
-        for academic_year in DATA['academic_years']:
-            data_exist = AcademicYear.objects.filter(academic_name__exact=academic_year).all()
-            if not data_exist:
-                print("Added: " + academic_year)
-                AcademicYear.objects.create(academic_name=academic_year, status=1)
-            else:
-                if data_exist[0].academic_name == academic_year:
-                    print("Skipping: " + academic_year)
-                else:
-                    print("Added: " + academic_year)
-                    AcademicYear.objects.create(academic_name=academic_year, status=1)
-        # ++++++++++++++++++++++++ End of Adding Academic Year +++++++++++++++++
-
-        # ++++++++++++++++++++++++ Adding Employee Designations ++++++++++++++++++++++++
-        for designation in DATA['designations']:
-            data_exist = Designation.objects.filter(emp_designation_name__exact=designation).all()
-            if not data_exist:
-                print("Added: " + designation)
-                Designation.objects.create(emp_designation_name=designation, status=1)
-            else:
-                if data_exist[0].emp_designation_name == designation:
-                    print("Skipping: " + designation)
-                else:
-                    print("Added: " + designation)
-                    Designation.objects.create(emp_designation_name=designation, status=1)
-        # ++++++++++++++++++++++++ End of Adding Employee Designations +++++++++++++++++
-
-        # Employee Category
-        # unskilled, clerical, trades, or professional
-
-        # Employee Designation
-        # teacher, etc
-
-        # for i in range(3):
-        #
-        #     academic_year = AcademicYear.objects.create(academic_name=DATA['academic_years'][i], status=1,
-        #                                                 start_date=fake.date_this_month(),
-        #                                                 end_date=fake.date_this_month())
-        #     course = Courses.objects.create(course_name=DATA['courses'][i], status=1,
-        #                                     course_code=DATA['courses'][i], course_alias=DATA['courses'][i])
-        #     batch = Batches.objects.create(batch_name=DATA['batches'][i] + 'Batch', academic_name=academic_year,
-        #                                    status=1,
-        #                                    course_name=course, start_date=fake.date_this_month(),
-        #                                    end_date=fake.date_this_month())
-
-        #     for j in ['A', 'B', 'C']:
-        #         Classes.objects.create(class_name='%d' % (i + 5), class_division=j)
-        #
-        # cat = QuestionCategory.objects.create(name='Energy Sources',
-        #                                       description='Advantages and Disadvantages of energy sources', status=1)
-        # questions = [
-        #     'An advantage of using solar power is',
-        #     'An advantage of using hydroelectric power is',
-        #     'Most utility companies in the U.S. dont use hydroelectric power because',
-        #     'Which energy source would be best for a city that has limited space and want to be effecient?',
-        #     'What is a major disadvantage of nuclear power?',
-        #     'If a community were choosing between solar and wind, what advantage would make wind the best choice?',
-        #     'An advantage of burning coal for energy is',
-        #     'An advantage of using natural gas as a form of energy is',
-        #     'What do geothermal and solar energy have in common?',
-        # ]
-        # opts = [
-        #     ['no greenhouse gases', 'lots of pollution', 'it is available even on cloudy days'],
-        #     ['reservoirs can be used for irrigation of crops', 'sometimes surrounding area get flooded',
-        #      'the normal flow of the water is diverted'],
-        #     ['the plants are expensive to build and use expensive machinery',
-        #      'reservoirs can be used to irrigate crops and they dont want to help farmers',
-        #      'the cause a lot of greenhouse gass'],
-        #     [r'solar-costly to build and 6%-30% efficient', r'Wind-turbines need lots of free space 40%-60% efficient',
-        #      'Natural gas-can be used in small areas 50%-60% efficient'],
-        #     ['it produces small amounts of power', 'the by-product(waste) is nuclear radiation',
-        #      'power plants are inexpensive to build'],
-        #     ['locations for turbines are limited because the wind can be blocked',
-        #      'solar needs a back up system for cloudy days, some days there is no wind to move the turbines blades',
-        #      'wind energy is less expensive and it is limitless'],
-        #     ['it is an inexpensive source of energy', 'it does not pollute the air', 'it is a renewable energy source'],
-        #     ['it is more expensive compared to other fossil fuels',
-        #      'It produces low emissions(pollution) compared to other fossil fuels',
-        #      'there is a more limited supply compared to other fossil fuels'],
-        #     ['they both use sunlight to generate energy', 'both are non-renewable energy sources',
-        #      'neither produce greenhouse gass'],
-        # ]
-        #
-        # ans = [1, 1, 1, 3, 2, 3, 1, 2, 3]
-        #
-        # for i, q in enumerate(questions):
-        #     quest = Questions.objects.create(questioncategory=cat, title=q, desc=q, status=1)
-        #     t = 'text'
-        #     QuestionOptions.objects.create(question=quest,
-        #                                    opt_1=opts[i][0], opt_1_type=t, opt_2=opts[i][1], opt_2_type=t,
-        #                                    opt_3=opts[i][2], opt_3_type=t,
-        #                                    answer=ans[i], difficulty='Easy')
