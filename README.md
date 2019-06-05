@@ -1,4 +1,13 @@
 # REST Api
+The Django back end is created for easily building applications on Rest Framework. This repo include packages like dashboard and system settings. This functionality is as same as Python-Django-Html/LafluxV2.
+
+### Dashboard
+Includes basic CRUD's. CRUD's include Users, Roles, etc. User-Role Mapping, Access Control Logic (ACL), etc are also there.
+
+### System Settings
+This package includes basic CRUD's for settings. Eg: Conutry, City, Email Config, SMS Config, etc. 
+
+# Installation & Running
 
 ## migrate and populatedb
 
