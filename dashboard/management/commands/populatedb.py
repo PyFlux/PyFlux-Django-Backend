@@ -11,8 +11,7 @@ from dashboard.models import Widget, Roles, UserTypes, SystemSettings
 
 
 DATA = {
-    'user_types': {'Super Admin': 'SU', 'Admin': 'A', 'Principal': 'PR', 'Manager': 'MN', 'Student': 'S', 'Parent': 'P',
-                   'Employee': 'E', 'Teacher': 'T', 'Anonymous': 'AN'},
+    'user_types': {'Super Admin': 'SU', 'Admin': 'A','Anonymous': 'AN'},
     'system_settings': {
         'maintenance_mode': '0', 'frontend_url': '', 'backend_url': '', 'sendsms_verifiednumbers_only':'0',
         'sub_domain': '',
@@ -31,15 +30,7 @@ DATA = {
     'hobbies': ['Reading', 'Writing', 'Drawing', 'Listening Music'],
     'countries': ['India', 'America', 'Other'],
     'designations': ['Principal', 'Manager', 'Teacher', 'Driver', 'Other'],
-    'widgets': {'profile':'', 'fees':'S,P,T', 'events':'', 'noticeboard':'', 'holidays':'', 
-                'student_progress_report':'S,P', 'student_fee_report':'S,P,T', 'teacher_exam_report':'T', 
-                'student_attendance_report':'S,P,T', 'common_attendance_report':'','assignment':'S,P,T', 
-                'leave_applications':'', 'timetable':'', 'teacher_timetable':'T'},
-
-    'subjects': ['Malayalam Paper 1', 'Malayalam Paper 2', 'English', 'Hindi', 'Physics', 'Mathematics', 'Chemistry',
-                 'Biology', 'Science', 'Social Sciences', 'Information Technology (IT)', 'Sanskrti'],
-    # 'courses': ['Electronics', 'ComputerScience', 'Mechanical'],
-    # 'batches': ['2017', '2018', '2019'],
+    'widgets': {'profile':''},
 }
 
 

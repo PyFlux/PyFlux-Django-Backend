@@ -5,7 +5,7 @@ $ apt-get install git vim htop ncdu zip certbot python3-certbot-apache rabbitmq-
 $ pip3 install virtualenv
 $ apt-get install postgresql postgresql-contrib
 $ sudo -u postgres psql
-	ALTER USER postgres WITH PASSWORD 'rootVidhyaDhan123#!';
+	ALTER USER postgres WITH PASSWORD 'root';
 	CREATE DATABASE vidhyadhanbackend;
 	\q
 $ cd /var/www/
