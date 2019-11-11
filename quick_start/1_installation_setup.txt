@@ -1,0 +1,100 @@
+
+$ apt-get update
+$ apt-get install python3-pip apache2 libapache2-mod-wsgi-py3 libpq-dev python-dev
+$ apt-get install git vim htop ncdu zip certbot python3-certbot-apache rabbitmq-server supervisor npm wkhtmltopdf xvfb
+$ pip3 install virtualenv
+$ apt-get install postgresql postgresql-contrib
+$ sudo -u postgres psql
+	ALTER USER postgres WITH PASSWORD 'rootVidhyaDhan123#!';
+	CREATE DATABASE vidhyadhanbackend;
+	\q
+$ cd /var/www/
+$ git clone https://gitlab.com/DonamsInnovations/Vidhyadhan-Back-End backend
+$ cd backend
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip3 install -r requirements.txt
+$ chmod 777 media
+$ chmod 777 logs
+$ ./manage.py makemigrations
+$ ./manage.py migrate
+$ ./manage.py collectstatic
+$ ./manage.py createadminuser
+$ ./manage.py populatedb
+$ touch /etc/supervisor/conf.d/celery_proj_worker.conf
+$ vim /etc/supervisor/conf.d/celery_proj_worker.conf
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; celery -A backend worker -l info -B
+; Worker
+[program:projworker]
+command=/var/www/backend/venv/bin/celery -A backend worker -l info
+directory=/var/www/backend
+numprocs=1
+autostart=true
+autorestart=true
+startsecs=10
+stopwaitsecs = 600
+killasgroup=true
+priority=998
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$ touch /etc/supervisor/conf.d/celery_proj_beat.conf
+$ vim /etc/supervisor/conf.d/celery_proj_beat.conf
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+; Beat
+[program:projbeat]
+command=/var/www/backend/venv/bin/celery -A backend beat -l info
+directory=/var/www/backend
+numprocs=1
+autostart=true
+autorestart=true
+startsecs=10
+priority=999
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+$ supervisorctl reread
+$ supervisorctl update
+$ supervisorctl start projworker
+$ supervisorctl start projbeat
+$ supervisorctl status
+
+
+$ apt-get install wkhtmltopdf
+$ apt-get install xvfb
+$ printf '#!/bin/bash\nxvfb-run -a --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf -q $*' > /usr/bin/wkhtmltopdf.sh
+$ chmod a+x /usr/bin/wkhtmltopdf.sh
+$ ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
+$ wkhtmltopdf http://www.google.com output.pdf
+
+
+$ cd /var/www/backend/socketio_server
+>>> Edit certificate path in src/chat-server.js
+$ npm install -g gulp-cli
+$ npm install
+$ gulp build
+$ npm start
+$ npm install -g pm2
+$ pm2 start dist/index.js
+$ pm2 startup systemd
+$
+$
+$
+
+$ sudo certbot --apache -d demoapi.vidhyadhan.in
+$
+$
+$
+$
+$
+$
+$ cd /var/www/frontend
+$ touch .htaccess
+$ vim .htaccess
+	<IfModule mod_rewrite.c>
+	  RewriteEngine On
+	  RewriteBase /
+	  RewriteRule ^index\.html$ - [L]
+	  RewriteCond %{REQUEST_FILENAME} !-f
+	  RewriteCond %{REQUEST_FILENAME} !-d
+	  RewriteRule . index.html [L]
+	</IfModule>
+$ sudo certbot --apache -d demo.vidhyadhan.in
+$ sudo service apache2 restart
