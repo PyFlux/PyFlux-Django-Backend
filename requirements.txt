@@ -12,7 +12,7 @@ django-uuidfield==0.5.0
 djangorestframework==3.9.2
 dnspython==1.16.0
 et-xmlfile==1.0.1
-eventlet==0.24.1
+eventlet==0.31.0
 Faker==1.0.4
 fcm-django==0.2.21
 greenlet==0.4.15
